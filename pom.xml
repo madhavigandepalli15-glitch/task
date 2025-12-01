@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<!-- Anypoint Org / Business Group ID -->
 	<groupId>f0005679-fd45-4b88-898d-080ad2da66c9</groupId>
 	<artifactId>task</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
+
 	<name>task</name>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -36,6 +39,7 @@
 			<url>https://repo.maven.apache.org/maven2</url>
 		</repository>
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>mulesoft-plugin-repo</id>
@@ -57,6 +61,7 @@
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -72,19 +77,23 @@
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>mule-application</classifier>
+
 					<cloudhub2Deployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
 						<environment>${deployment.env}</environment>
 						<target>${deployment.target}</target>
-						
+
+						<server>Repository</server>
 						<!-- Overridden from Jenkins with -Danypoint.username/password -->
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
 						<muleVersion>${app.runtime}</muleVersion>
 						<applicationName>${project.artifactId}</applicationName>
+
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
+
 						<deploymentSettings>
 							<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
 						</deploymentSettings>
@@ -93,6 +102,7 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
